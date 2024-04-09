@@ -21,22 +21,29 @@ public class Main {
             media += salario;
 
             System.out.println("\nNome do " + (i +1) + "° funcionário: "+ nomeFuncionario);
-            System.out.println("Salário do funcionário " + nomeFuncionario + " R$: " + salario);
-            continuar = verificarFim();
-            if(continuar == 'N'){
+            System.out.println("Salário do funcionário " + nomeFuncionario + " R$: " + String.format("%.2f",salario));
+
+            if(i == maxFuncionario - 1){
+                System.out.println("\nNúmero máximo de funcionários cadastrados.");
                 break;
+            } else {
+                continuar = verificarFim();
+                if (continuar == 'N') {
+                    break;
+                }
             }
         }
 
-        System.out.println("\nMédia geral de salário dos funcionários R$: " + String.format("%.2f",(media/(i+1))));
+        System.out.println("\n------------------------------------------------------------------------------------------");
+        System.out.println("Média salarial dos funcionários R$: " + String.format("%.2f",media/(i+1)));
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println("Número de funcionários que trabalharam 100 horas ou mais: " + cont100[0]);
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println("Nome do funcionário com o maior salário: " + nomeMaiorMenor[0]);
-        System.out.println("Salário do funcionário: " + salarioMaiorMenor[0]);
+        System.out.println("Salário do funcionário R$: " + String.format("%.2f",salarioMaiorMenor[0]));
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println("Nome do funcionário com o menor salário: " + nomeMaiorMenor[1]);
-        System.out.println("Salário do funcionário: " + salarioMaiorMenor[1]);
+        System.out.println("Salário do funcionário R$: " + String.format("%.2f",salarioMaiorMenor[1]));
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println("Finalizando...");
 
@@ -84,7 +91,7 @@ public class Main {
         char entrada;
 
         do{
-            System.out.print("\nDeseja inserir mais funcionários? (S-Sim ou N-Não):");
+            System.out.print("\nDeseja inserir mais funcionários? (S-Sim ou N-Não): ");
             entrada = sc.next().toUpperCase().charAt(0);
 
             if((entrada != 'S') && (entrada != 'N')){
